@@ -7,37 +7,149 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <script src="https://js.puter.com/v2/"></script>
-    <title>GASTO DA FOTO</title>
+    
 </head>
 
 <body> <!-- TODA A PARTE VISÍVEL -->
 
-    <div>
+ 
+ 
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">✦</div>
+          <span>DigitalizaCupom - Aplicativo para Digitalizar Cupons Fiscais.</span>
+        </div>
 
-        <h1>📸 Gasto na Foto</h1>
-        <p class="topo">Fotografe o comprovante. A IA anota pra você.</p>
+        <nav class="nav" aria-label="Principal">
+          <a href="#resolucoes" class="active">Digitalização de Comprovantes</a>
+          <a href="#conteudo" class="active">Tabela Sintética</a>
+          <a href="#avaliacoes" class="active">Tabela Analítica</a>
+        </nav>
+      </header>
 
+<main>
+<!-- CONTEÚDO PRINCIPAL --> 
+
+     <div class="caixa-total">
+        <p>Custo Total Acumulado</p>
+        <h2 class="total-gasto">R$ 0,00</h2> 
     </div>
+ 
+         <section class="features">
+          <article class="feature-card" id="resolucoes">
+            <div class="feature-icon">🧾</div>
+            <h3>Digitalização de Comprovantes</h3>
+            <p>
+              Visualização dos comprovantes de pagamento.
+            </p>
 
-    <div class="caixa-total">
+            <div class="problem-workspace">
+              
 
-        <p>Total gasto</p>
-        <h2 class="total-gasto">R$ 0,00</h2>
-        
-    </div>
+              <div
+                id="problemSolutionInput"
+                class="problem-solution-input"
+                aria-live="polite"
+                contenteditable="true"
+                role="textbox"
+                aria-label="Cupons fiscais"
+              >
+                <p>Visualização dos Cupons Fiscais Carregados:</p>
+              </div>
+            </div>
+
+          
+            <div class="feature-actions">
+              <button class="button primary" type="button" data-action="camera"><span class="button-icon">📷</span><span>Usar Câmera</span></button>
+              <button class="button secondary" type="button" id="btnUploadArquivo" onclick="lerFoto()"><span class="button-icon">⬆️</span><span>Carregar Imagem</span></button>
+              <button class="button ghost" type="button" id="btnLimparResolucao"><span class="button-icon">🧹</span><span>Limpar Imagem</span></button>
+            </div>
+          
+            
+          </article>
+
+          <article class="feature-card" id="conteudo">
+            <div class="feature-icon">📘</div>
+            <h3>Tabela Sintética</h3>
+            <p>
+              Um resumo geral que lista os serviços principais: data, categoria, descrição e preços totais.
+            </p>
+
+         <div class="table-container">
+            <table id="tableSynthetic">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Categoria</th>
+                        <th>Descrição</th>
+                        <th>Valor Total (R$)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    </tbody>
+            </table>
+        </div>
+        <button class="button primary" onclick="exportExcel('tableSynthetic', 'Comprovantes_Sintetico.xlsx')">Salvar Sintética (Excel)</button>
+    
+          </article>
+
+          <article class="feature-card" id="avaliacoes">
+            <div class="feature-icon">📝</div>
+            <h3>Tabela Analítica</h3>
+            <p>
+              Um documento completo com os serviços detalhados: data, categoria, descrição, quantidade, unidade, preço unitário, valor parcial e valor total.
+            </p>
+
+
+
+           <div class="table-container">
+            <table id="tableAnalytical">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Categoria</th>
+                        <th>Descrição</th>
+                        <th>Quantidade</th>
+                        <th>Preço Unit. (R$)</th>
+                        <th>Valor Parcial (R$)</th>
+                        <th>Valor Total (R$)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    </tbody>
+            </table>
+        </div>
+        <button class="button primary" onclick="exportExcel('tableAnalytical', 'Comprovantes_Analitico.xlsx')">Salvar Analítica (Excel)</button>
+            </div>
+            <div id="status-text" class="status-text" text-align="center" >Aguardando ação.</div>
+          </article>
+        </section>
+ 
+    
+</main>
+
+
+
+
+
+
+
 
     <!-- INPUT PARA SELECIONAR IMAGENS -->
 
     <!-- label -  -->
     <!-- change - mudar -->
     <label>
-        🧾 Toque para fotografar o comprovante
+        📷 Toque para Carregar o Comprovante.
         <input class="foto" onchange="lerFoto()" type="file" accept="image/*">
     </label>
 
-    <div class="lista">
+    
 
-    </div>
+    <footer>
+    <p>&copy; 2026 Antônio Pereira de Souza Junior. Todos os direitos reservados.</p>
+    </footer>
 
 </body>
 
