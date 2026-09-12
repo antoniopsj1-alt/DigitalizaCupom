@@ -85,7 +85,7 @@
         width: 100%;
         max-width: 1280px;
         margin: 0 auto;
-        padding: 28px 20px 60px;
+        padding: 10px;
         position: relative;
         z-index: 1;
         }
@@ -123,7 +123,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-
+	flex-wrap: wrap;
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
@@ -146,7 +146,10 @@
         color: var(--dark);
         font-size: 1.15rem;
         letter-spacing: -0.02em;
+    	flex: 1 1 100%;
+    	min-width: 0;
       }
+	.brand span {word-break: break-word;}
 
       .brand-mark {
         width: 48px;
@@ -163,7 +166,10 @@
 
       .nav {
         display: flex;
+    	width: 100%;
         align-items: center;
+    	justify-content: center;
+    	margin-top: 12px;
         gap: 14px;
         flex-wrap: wrap;
       }
@@ -553,6 +559,43 @@
 
     margin-bottom: 8px;
 }
+
+@media (max-width: 768px) {
+
+    .page-shell {
+        padding: 10px;
+    }
+
+    .topbar {
+        padding: 15px;
+        border-radius: 16px;
+    }
+
+    .brand {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .brand span {
+        font-size: 0.95rem;
+    }
+
+    .nav {
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .nav a {
+        padding: 8px 10px;
+        font-size: 0.85rem;
+    }
+
+    .caixa-total {
+        width: 100%;
+        padding: 16px;
+    }
+}
+
 
 h1 {
     text-align: center;
