@@ -282,6 +282,33 @@ function exportExcel(tableId,fileName){
 window.exportExcel=exportExcel;
 window.lerFoto=lerFoto;
 
+async function copiarTabela(tableId) {
+  const tabela = document.getElementById(tableId);
+
+  if (!tabela) {
+    alert('Tabela não encontrada.');
+    return;
+  }
+
+  try {
+    // Copia a tabela como texto tabulado
+    const texto = Array.from(tabela.rows)
+      .map(row =>
+        Array.from(row.cells)
+          .map(cell => cell.innerText.trim())
+          .join('\t')
+      )
+      .join('\n');
+
+    await navigator.clipboard.writeText(texto);
+
+    alert('Tabela copiada para a área de transferência!');
+  } catch (erro) {
+    console.error(erro);
+    alert('Erro ao copiar a tabela.');
+  }
+}
+
 document.addEventListener('DOMContentLoaded',()=>{
   atualizarTotal();
 
@@ -293,6 +320,13 @@ document.addEventListener('DOMContentLoaded',()=>{
     document.getElementById('uploadInput')?.click();
   });
 
+	document.getElementById('btnCopiarSintetica')?.addEventListener('click', () => {
+  	copiarTabela('tableSynthetic');
+	});
+
+	document.getElementById('btnCopiarAnalitica')?.addEventListener('click', () => {
+  	copiarTabela('tableAnalytical');
+	});
     document.getElementById('btnLimparResolucao')?.addEventListener('click',()=>{
     document.getElementById('problemSolutionInput').innerHTML ='<p>VISUALIZAÇÃO DOS CUPONS DE COMPRAS CARREGADOS:</p>';
     document.querySelector('#tableSynthetic tbody').innerHTML='';
