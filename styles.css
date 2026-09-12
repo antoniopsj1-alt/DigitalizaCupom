@@ -122,15 +122,21 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+
         background: rgba(255, 255, 255, 0.75);
         border: 1px solid rgba(0, 82, 204, 0.1);
         backdrop-filter: blur(20px);
+
         border-radius: 28px;
         padding: 18px 28px;
+
         box-shadow: var(--shadow-md);
         margin-bottom: 8px;
       }
-
       .brand {
         display: flex;
         align-items: center;
@@ -543,13 +549,20 @@ body {
 
 
 .caixa-total {
-    background-color: #0f766e;   /* troca cor de fundo */
-    color: #ffffff;  /* troca cor do texto */
-    padding: 24px;  /* define o espaçamento interno */
-    text-align: center;  /* centraliza o texto */
-    border-radius: 18px;  /* define o arredondamento das bordas */
-}
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.75);
+   /* background-color: #0f766e; */
+    color: red;
 
+    padding: 24px;
+    text-align: center;
+
+    border-radius: 18px;
+
+    margin-bottom: 8px;
+}
 
 h1 {
     text-align: center;
