@@ -34,7 +34,7 @@
 
       body {
 
-      width:100vw;
+      width:100%;
       overflow-x:hidden;
         margin: 0;
         position: relative;
@@ -85,8 +85,8 @@
       a { text-decoration: none; }
 
         .page-shell {
-        width: 100vw;
-        max-width: none;
+        width: 100%;
+        max-width: 100%;
         margin: 0;
         padding: 10px;
         position: relative;
@@ -565,9 +565,20 @@
 
 @media (max-width: 768px) {
 
+    .caixa-total,
+    .feature-card,
+    .topbar {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
     .page-shell {
+        width: 100%;
         padding: 10px;
     }
+}
 
     .topbar {
         padding: 15px;
@@ -647,7 +658,10 @@ input {
 }
 
 .total-nota {
-  display: flex;
+  display: block;
+width: 100%;
+max-width: 100%;
+box-sizing: border-box;
   justify-content: space-between;
   border-top: 1px dashed #d6dee9;
   padding-top: 12px;
